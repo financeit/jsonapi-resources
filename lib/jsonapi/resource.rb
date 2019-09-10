@@ -1194,6 +1194,10 @@ module JSONAPI
       end
 
       def find_records(filters, options = {})
+        if JSONAPI.configuration.pass_filters_in_options
+          options[:filters] = filters
+        end
+
         context = options[:context]
 
         records = filter_records(filters, options)
