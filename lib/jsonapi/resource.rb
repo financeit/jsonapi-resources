@@ -3,3 +3,4 @@ module JSONAPI
     root_resource
   end
 end
+
