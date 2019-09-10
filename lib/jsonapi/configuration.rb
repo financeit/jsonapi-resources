@@ -35,7 +35,8 @@ module JSONAPI
                 :resource_cache_digest_function,
                 :resource_cache_usage_report_function,
                 :default_exclude_links,
-                :link_builder_prefix
+                :link_builder_prefix,
+                :pass_filters_in_options
 
     def initialize
       #:underscored_key, :camelized_key, :dasherized_key, or custom
@@ -144,6 +145,8 @@ module JSONAPI
       self.default_exclude_links = :none
 
       self.link_builder_prefix = nil
+
+      self.pass_filters_in_options = false
     end
 
     def cache_formatters=(bool)
@@ -263,6 +266,8 @@ module JSONAPI
     attr_writer :default_exclude_links
 
     attr_writer :link_builder_prefix
+
+    attr_writer :pass_filters_in_options
   end
 
   class << self
