@@ -694,6 +694,9 @@ module JSONAPI
                                             sort_primary: nil,
                                             paginator: nil,
                                             options: {})
+        if JSONAPI.configuration.pass_filters_in_options
+          options[:filters] = filters
+        end
 
         options[:_relation_helper_options] = { join_manager: join_manager, sort_fields: [] }
 

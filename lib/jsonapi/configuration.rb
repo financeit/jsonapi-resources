@@ -40,7 +40,9 @@ module JSONAPI
                 :resource_cache_digest_function,
                 :resource_cache_usage_report_function,
                 :default_exclude_links,
-                :use_related_resource_records_for_joins
+                :use_related_resource_records_for_joins,
+                :link_builder_prefix,
+                :pass_filters_in_options
 
     def initialize
       #:underscored_key, :camelized_key, :dasherized_key, or custom
@@ -164,6 +166,10 @@ module JSONAPI
       # permission scopes. It can be overridden explicitly per relationship. Furthermore, specifying a `relation_name`
       # on a relationship will cause this setting to be ignored.
       self.use_related_resource_records_for_joins = true
+
+      self.link_builder_prefix = nil
+
+      self.pass_filters_in_options = false
     end
 
     def cache_formatters=(bool)
@@ -307,6 +313,10 @@ module JSONAPI
     attr_writer :default_exclude_links
 
     attr_writer :use_related_resource_records_for_joins
+
+    attr_writer :link_builder_prefix
+
+    attr_writer :pass_filters_in_options
   end
 
   class << self
