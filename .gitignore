@@ -3,6 +3,7 @@
 *.sw*
 .bundle
 .config
+.mise.toml
 .yardoc
 .ruby-version
 Gemfile.lock
